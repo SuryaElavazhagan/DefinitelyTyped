@@ -604,4 +604,13 @@ export class Transaction<S extends Schema = any> extends Transform<S> {
    * when updated to the state produced by this transaction.
    */
   scrollIntoView(): Transaction;
+  /**
+   * The editor view uses a few metadata properties:
+   * it will attach a property "pointer" with the value true to selection transactions directly caused by mouse or touch input,
+   * and a "uiEvent" property of that may be "paste", "cut", or "drop".
+   */
+  meta?: {
+    pointer?: Boolean,
+    uiEvent?: 'paste' | 'cut' | 'drop'
+  }
 }
